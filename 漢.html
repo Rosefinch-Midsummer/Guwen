@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>漢代 - 古文</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="弁言.html"><strong aria-hidden="true">1.</strong> 弁言</a></li><li class="chapter-item expanded "><a href="漢.html" class="active"><strong aria-hidden="true">2.</strong> 漢代</a></li><li class="chapter-item expanded "><a href="晉.html"><strong aria-hidden="true">3.</strong> 晉代</a></li><li class="chapter-item expanded "><a href="唐.html"><strong aria-hidden="true">4.</strong> 唐代</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">古文</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ul>
+<li><a href="#%E5%8F%B8%E9%A6%AC%E9%81%B7">司馬遷</a>
+<ul>
+<li><a href="#%E5%A0%B1%E4%BB%BB%E5%B0%91%E5%8D%BF%E6%9B%B8">報任少卿書</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AB%B8%E8%91%9B%E4%BA%AE">諸葛亮</a>
+<ul>
+<li><a href="#%E8%AA%A1%E5%AD%90%E6%9B%B8">誡子書</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="司馬遷"><a class="header" href="#司馬遷">司馬遷</a></h2>
+<h3 id="報任少卿書"><a class="header" href="#報任少卿書">報任少卿書</a></h3>
+<p>太史公牛馬走司馬遷再拜言。少卿足下：曩者辱賜書，教以慎於接物，推賢進士爲務。意氣懃懃懇懇，若望僕不相師，而用流俗人之言。僕非敢如是也。僕雖罷駑，亦嘗側聞長者之遺風矣。顧自以爲身殘處穢，動而見尤，欲益反損，是以獨鬱悒而誰與語？諺曰：「誰爲爲之？孰令聽之？」蓋鍾子期死，伯牙終身不復鼓琴。何則？士爲知己者用，女爲説己者容。若僕大質已虧缺矣，雖才懷隨和，行若由夷，終不可以爲榮，適足以發笑而自點耳。書辭宜答，會東從上來，又迫賤事，相見日淺，卒卒無須臾之間，得竭志意。今少卿抱不測之罪，涉旬月，迫季冬；僕又薄從上雍，恐卒然不可為諱。是僕終已不得舒憤懣以曉左右，則長逝者魂魄私恨無窮。請略陳固陋，闕然久不報，幸勿為過。</p>
+<p>僕聞之：修身者，智之符也；愛施者，仁之端也；取予者，義之表也；恥辱者，勇之決也；立名者，行之極也。士有此五者，然後可以託於世，列於君子之林矣。故禍莫憯於欲利，悲莫痛於傷心，行莫醜於辱先，而詬莫大於宮刑。刑餘之人，無所比數，非一世也，所從來遠矣。昔衞靈公與雍渠同載，孔子適陳；商鞅因景監見，趙良寒心；同子參乘，袁絲變色。自古而恥之。夫以中材之人，事有關於宦豎，莫不傷氣，而況於慷慨之士乎！如今朝廷雖乏人，柰何令刀鋸之餘薦天下豪俊哉！
+僕賴先人緒業，得待罪輦轂下，二十餘年矣。所以自惟，上之，不能納忠效信，有奇策才力之譽，自結明主；次之，又不能拾遺補闕，招賢進能，顯巖穴之士；外之，不能備行伍，攻城野戰，有斬將搴旗之功；下之，不能積日累勞，取尊官厚祿，以爲宗族交遊光寵。四者無一遂，苟合取容，無所短長之效，可見於此矣。嚮者，僕亦嘗廁下大夫之列，陪奉外廷末議。不以此時引綱維，盡思慮；今以虧形爲掃除之隸，在闒茸之中，乃欲仰首伸眉，論列是非，不亦輕朝廷，羞當世之士邪！嗟乎！嗟乎！如僕尚何言哉！尚何言哉！</p>
+<p>且事本末未易明也。僕少負不羈之才，長無鄉曲之譽，主上幸以先人之故，使得奉薄伎，出入周衞之中。僕以爲戴盆何以望天，故絶賓客之知，亡室家之業，日夜思竭其不肖之材力，務一心營職，以求親媚於主上。而事乃有大謬不然者。
+夫僕與李陵俱居門下，素非能相善也。趣舍異路，未嘗銜盃酒，接殷勤之餘懽。然僕觀其爲人，自守奇士，事親孝，與士信，臨財廉，取與義，分別有讓，恭儉下人，常思奮不顧身，以殉國家之急。其素所畜積也，僕以爲有國士之風。夫人臣出萬死不顧一生之計，赴公家之難，斯已奇矣。今舉事一不當，而全軀保妻子之臣隨而媒孽其短，僕誠私心痛之。且李陵提步卒不滿五千，深踐戎馬之地，足歴王庭，垂餌虎口，橫挑彊胡，仰億萬之師，與單于連戰十有餘日，所殺過當。虜救死扶傷不給，旃裘之君長咸震怖，乃悉徵其左右賢王，舉引弓之人，一國共攻而圍之。轉鬭千里，矢盡道窮，救兵不至，士卒死傷如積。然陵一呼勞軍，士無不起，躬自流涕，沬血飲泣，更張空弮，冒白刃，北嚮爭死敵者。陵未沒時，使有來報，漢公卿王侯皆奉觴上壽。後數日，陵敗書聞，主上爲之食不甘味，聽朝不怡。大臣憂懼，不知所出。僕竊不自料其卑賤，見主上慘愴怛悼，誠欲效其款款之愚，以爲李陵素與士大夫絶甘分少，能得人之死力，雖古之名將，不能過也。身雖陷敗，彼觀其意，且欲得其當而報漢。事已無可柰何，其所摧敗，功亦足以暴於天下矣。僕懷欲陳之，而未有路，適會召問，即以此指推言陵之功，欲以廣主上之意，塞睚眥之辭。未能盡明，明主不曉，以爲僕沮貳師，而爲李陵遊説，遂下於理。拳拳之忠，終不能自列。因爲誣上，卒從吏議。家貧，貨賂不足以自贖，交遊莫救視；左右親近不爲一言。身非木石，獨與法吏爲伍，深幽囹圄之中，誰可告愬者！此真少卿所親見，僕行事豈不然邪？李陵既生降，頹其家聲；而僕又佴以蠶室，重爲天下觀笑。悲夫！悲夫！事未易一二爲俗人言也。</p>
+<p>僕之先，非有剖符丹書之功，文史星暦，近乎卜祝之間，固主上所戲弄，倡優所畜，流俗之所輕也。假令僕伏法受誅，若九牛亡一毛，與螻螘何以異？而俗又不能與能死節者次比，特以爲智窮罪極，不能自免，卒就死耳。何也？素所自樹立使然也。人固有一死，死或重於泰山，或輕於鴻毛，用之所趣異也。太上不辱先，其次不辱身，其次不辱理色，其次不辱辭令，其次詘體受辱，其次易服受辱，其次關木索、被箠楚受辱，其次剔毛髮、嬰金鐵受辱，其次毀肌膚、斷肢體受辱，最下腐刑，極矣。傳曰：「刑不上大夫。」此言士節不可不勉勵也。猛虎在深山，百獸震恐，及其在檻穽之中，搖尾而求食，積威約之漸也。故士有畫地爲牢，勢不可入，削木爲吏，議不可對，定計於鮮也。今交手足，受木索，暴肌膚，受榜箠，幽於圜牆之中。當此之時，見獄吏則頭搶地，視徒隸則心惕息。何者？積威約之勢也。及已至是，言不辱者，所謂彊顏耳，曷足貴乎！且西伯，伯也，拘於羑里；李斯相也，具於五刑；淮陰，王也，受械於陳；彭越、張敖，南面稱孤，繫獄抵罪；絳侯誅諸呂，權傾五伯，囚於請室；魏其，大將也，衣赭衣，關三木；季布爲朱家鉗奴；灌夫受辱於居室。此人皆身至王侯將相，聲聞鄰國，及罪至罔加，不能引決自裁，在塵埃之中，古今一體，安在其不辱也！由此言之，勇怯，勢也；彊弱，形也。審矣！何足怪乎？夫人不能蚤自裁繩墨之外，以稍陵遲至於鞭箠之間，乃欲引節，斯不亦遠乎！古人所以重施刑於大夫者，殆爲此也。</p>
+<p>夫人情莫不貪生惡死，念父母，顧妻子，至激於義理者不然，乃有所不得已也。今僕不幸，蚤失二親，無兄弟之親，獨身孤立，少卿視僕於妻子何如哉？且勇者不必死節，怯夫慕義，何處不勉焉！僕雖怯懦，欲苟活，亦頗識去就之分矣，何至自沉溺縲紲之辱哉！且夫臧獲婢妾，猶能引決，況僕之不得已乎！所以隱忍苟活，幽於糞土之中而不辭者，恨私心有所不盡，鄙陋沒世，而文采不表於後世也。</p>
+<p>古者富貴而名磨滅，不可勝記，唯倜儻非常之人稱焉。蓋西伯拘而演周易；仲尼戹而作春秋；屈原放逐，乃賦離騷；左丘失明，厥有國語；孫子髕腳，兵法修列；不韋遷蜀，世傳呂覽；韓非囚秦，説難、孤憤。詩三百篇，大底聖賢發憤之所爲作也。此人皆意有所鬱結，不得通其道，故述往事，思來者。及如左丘無目，孫子斷足，終不可用，退而論書策以舒其憤，思垂空文以自見。</p>
+<p>僕竊不遜，近自託於無能之辭，網羅天下放失舊聞，略考其事，綜其終始，稽其成敗興壞之紀，上計軒轅，下至於茲，爲十表，本紀十二，書八章，世家三十，列傳七十，凡百三十篇。亦欲以究天人之際，通古今之變，成一家之言。草創未就，會遭此禍，惜其不成，是以就極刑而無慍色。僕誠已著此書，藏諸名山，傳之其人通邑大都，則僕償前辱之責，雖萬被戮，豈有悔哉！然此可爲智者道，難爲俗人言也。</p>
+<p>且負下未易居，下流多謗議，僕以口語遇遭此禍，重爲鄉黨所戮笑，以污辱先人，亦何面目復上父母之丘墓乎？雖累百世，垢彌甚耳！是以腸一日而九回，居則忽忽若有所亡，出則不知所如往。每念斯恥，汗未嘗不發背霑衣也。身直爲閨閤之臣，寧得自引深臧巖穴邪？故且從俗浮沉，與時俯仰，以通其狂惑。今少卿乃教以推賢進士，無乃與僕私心剌謬乎？今雖欲自彫瑑，曼辭以自飾，無益，於俗不信，適足取辱耳。要之，死日然後是非乃定。書不能盡意，略陳固陋，謹再拜。</p>
+<h2 id="諸葛亮"><a class="header" href="#諸葛亮">諸葛亮</a></h2>
+<h3 id="誡子書"><a class="header" href="#誡子書">誡子書</a></h3>
+<p>夫君子之行，靜以修身，儉以養德。非澹泊無以明志，非寧靜無以致遠。夫學須靜也，才須學也。非學無以廣才，非志無以成學。慆慢則不能勵精，險躁則不能冶性。年與時馳，志與歲去，遂成枯落，多不接世。悲守窮廬，將復何及！</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="弁言.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="晉.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="弁言.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="晉.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
